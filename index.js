@@ -18,7 +18,7 @@ module.exports = function(data) {
     var queue = this.queue.bind(this)
     var str = chunk.toString()
     var i = 0
-    str.replace(/\`\`\`vomit([^```]*)\`\`\`/g, function(all, expr, idx) {
+    str.replace(/\`\`\`vomit((.|\n)*)\`\`\`/g, function(all, expr, _, idx) {
       queue(marked(str.substring(i, idx)))
       queue(render(expr, data))
       i = idx + all.length
