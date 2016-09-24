@@ -20,7 +20,7 @@ module.exports = function(data) {
     var i = 0
     str.replace(/\`\`\`vomit([^```]*)\`\`\`/g, function(all, expr, idx) {
       queue(marked(str.substring(i, idx)))
-      queue(render(snippet(expr), data))
+      queue(render(expr, data))
       i = idx + all.length
     })
     queue(marked(str.substring(i)))
@@ -31,7 +31,7 @@ module.exports = function(data) {
 
 
 /**
- * Render highlighted code and live example.
+ * Render code and live example.
  *
  * @param {String} code
  * @param {Object} data
@@ -39,21 +39,10 @@ module.exports = function(data) {
  */
 
 function render(code, data) {
-  return `<script>
-    ${code}
+  var js = '```js' + code + '```'
+  return `<div class="vomit-snippet"><div class="column">${marked(js)}</div><div class="column"><script>
+    var fn = (function() {${code}return component})()
     var el = fn(${JSON.stringify(data.data)})
     document.currentScript.parentElement.appendChild(el)
-    </script>`
-}
-
-
-/**
- * Render snippet script.
- *
- * @param {String} code
- * @api private
- */
-
-function snippet(code)  {
-  return `var fn = (function() {${code}return component})()`
+    </script></div></div>`
 }
