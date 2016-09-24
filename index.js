@@ -3,7 +3,7 @@
  */
 
 var marked = require('marked')
-var through = reuire('through')
+var through = require('through')
 
 
 /**
@@ -11,7 +11,18 @@ var through = reuire('through')
  */
 
 module.exports = function() {
-  return through(data => {
-    
+  return through(function(data) {
+      this.queue(marked(data.toString()))
   })
 }
+
+
+/**
+ * Override code highlighting.
+ */
+
+marked.setOptions({
+  highlight: function (code, lang, callback) {
+    //console.log(code, lang)
+  }
+});

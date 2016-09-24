@@ -4,7 +4,7 @@
   "description": "Generate vomit live examples from markdown",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test/*.js"
+    "test": "tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,10 @@
   "dependencies": {
     "marked": "^0.3.6",
     "through": "^2.3.8"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "concat-stream": "^1.5.2",
+    "tape": "^4.6.0"
   }
 }
