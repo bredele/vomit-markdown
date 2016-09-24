@@ -41,8 +41,6 @@ module.exports = function(data) {
 function render(code, data) {
   var js = '```js' + code + '```'
   return `<div class="vomit-snippet"><div class="column">${marked(js)}</div><div class="column"><script>
-    var fn = (function() {${code}return component})()
-    var el = fn(${JSON.stringify(data.data)})
-    document.currentScript.parentElement.appendChild(el)
-    </script></div></div>`
+(function() {${code}document.currentScript.parentElement.appendChild(component(${JSON.stringify(data.data)}))
+})()</script></div></div>`
 }
