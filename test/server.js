@@ -7,6 +7,7 @@ var markdown = require('..')
 var http = require('http')
 var fs = require('fs')
 
+
 http.createServer((req, res) => {
   switch(req.url) {
     case '/':
@@ -19,7 +20,7 @@ http.createServer((req, res) => {
           <title>Vomit markdown</title>
         </head>
         <body>
-        ${fs.createReadStream(__dirname + '/example.md').pipe(markdown({data: "hello"}))}
+        ${fs.createReadStream(__dirname + '/example.md').pipe(markdown({data: "hello world"}))}
         </body>
       </html>
       `.pipe(res)
@@ -27,4 +28,5 @@ http.createServer((req, res) => {
     default:
       res.end()
   }
-}).listen(port || 3000)
+}).listen(3000)
+require('open')('http://localhost:3000')

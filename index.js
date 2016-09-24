@@ -7,28 +7,27 @@ var through = require('through')
 
 
 /**
+ * Render and highlight vomit component.
  *
+ * @param {Object} data
+ * @api public
  */
 
 module.exports = function(data) {
   return through(function(chunk) {
-    var that = this
-    marked(chunk.toString(), (err, content) => {
-      that.queue(err ? render(err, data) : content)
+    var queue = this.queue.bind(this)
+    var str = chunk.toString()
+    var i = 0
+    str.replace(/\`\`\`vomit([^```]*)\`\`\`/g, function(all, expr, idx) {
+      queue(marked(str.substring(i, idx)))
+      queue(render(snippet(expr), data))
+      i = idx + all.length
     })
+    queue(marked(str.substring(i)))
   })
 }
 
 
-/**
- * Override code highlighting.
- */
-
-marked.setOptions({
-  highlight: function (code, lang, cb) {
-    if(lang == 'vomit') cb(snippet(code))
-  }
-})
 
 
 /**
