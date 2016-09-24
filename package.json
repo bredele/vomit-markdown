@@ -1,0 +1,24 @@
+{
+  "name": "vomit-markdown",
+  "version": "1.0.0",
+  "description": "Generate vomit live examples from markdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "browserify test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bredele/vomit-markdown.git"
+  },
+  "keywords": [
+    "vomit",
+    "markdown",
+    "doc"
+  ],
+  "author": "Olivier Wietrich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bredele/vomit-markdown/issues"
+  },
+  "homepage": "https://github.com/bredele/vomit-markdown#readme"
+}
