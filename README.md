@@ -39,9 +39,8 @@ function component(data) {
 
 ```
 
-Snippets of code have to contain at least a function called `component`. This function can take data as input
+Snippets of code have to contain at least a function called ```component``. This function can take data as input
 and should always return a DOM element.
-
 
 ## License
 
