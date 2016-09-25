@@ -30,6 +30,6 @@
     "concat-stream": "^1.5.2",
     "open": "0.0.5",
     "tape": "^4.6.0",
-    "vomit": "github:bredele/vomit"
+    "vomit": "^0.9.14"
   }
 }
