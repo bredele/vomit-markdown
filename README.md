@@ -27,10 +27,10 @@ $ npm test
 
 A vomit markdown can include live examples by including snippets of code as following:
 
-```md
+```shell
 This is an example:
 
-```shell
+```vomit
 function component(data) {
   return document.createElement('button')
 }
