@@ -30,7 +30,7 @@ A vomit markdown can include live examples by including snippets of code as foll
 ```md
 This is an example:
 
-```vomit
+```shell
 function component(data) {
   return document.createElement('button')
 }
