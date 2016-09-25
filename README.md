@@ -34,7 +34,7 @@ function component(data) {
   return document.createElement('button')
 }
 ```
-<code></pre>
+</code></pre>
 
 
 Snippets of code have to contain at least a function called `component``. This function can take data as input
