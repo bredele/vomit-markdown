@@ -23,6 +23,25 @@ See and run example by typing:
 $ npm test
 ```
 
+## Standard
+
+A vomit markdown can include live examples by including snippets of code as following:
+
+```md
+This is an example:
+
+```vomit
+function component(data) {
+  return document.createElement('button')
+}
+```
+ > isn't cool?
+
+```
+
+Snippets of code have to contain at least a function called `component`. This function can take data as input
+and should always return a DOM element.
+
 
 ## License
 
