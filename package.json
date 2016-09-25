@@ -1,6 +1,6 @@
 {
   "name": "vomit-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate vomit live examples from markdown",
   "main": "index.js",
   "scripts": {
